@@ -9,6 +9,7 @@ import FunnelConversao from '@/components/charts/funnel_chart';
 import CostVsMeetingsChart from '@/components/charts/cost_vs_meetings_chart';
 import SentimentDonutChart from '@/components/charts/sentiment_donut_chart';
 import { TaxaPorHorario, TaxaPorDiaSemana } from '@/components/charts/attendance_by_time_charts';
+import { TaxaReuniaoPorHorario, TaxaReuniaoPorDiaSemana } from '@/components/charts/meetings_by_time_charts';
 import DateRangeFilter, { filtrarPorIntervalo } from '@/components/ui/date_filter';
 
 const supabaseUrl = 'https://ghayhpwthdbmnpsptcnb.supabase.co';
@@ -98,6 +99,16 @@ export default function MindflowDashboard() {
         <div>
           <h2 className="text-lg font-semibold mb-2">Taxa de Atendimento por Dia da Semana</h2>
           <TaxaPorDiaSemana leads={filteredLeads} />
+        </div>
+
+        <div>
+          <h2 className="text-lg font-semibold mb-2">Taxa de Reuniões por Horário</h2>
+          <TaxaReuniaoPorHorario leads={filteredLeads} />
+        </div>
+
+        <div>
+          <h2 className="text-lg font-semibold mb-2">Taxa de Reuniões por Dia da Semana</h2>
+          <TaxaReuniaoPorDiaSemana leads={filteredLeads} />
         </div>
       </section>
     </div>
