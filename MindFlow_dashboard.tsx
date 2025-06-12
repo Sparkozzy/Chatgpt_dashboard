@@ -7,6 +7,7 @@ import { Lead } from '@/types/lead';
 import { calcularKPIs } from '@/utils/kpi';
 import FunnelConversao from '@/components/charts/funnel_chart';
 import CostVsMeetingsChart from '@/components/charts/cost_vs_meetings_chart';
+import SentimentDonutChart from '@/components/charts/sentiment_donut_chart';
 import DateRangeFilter, { filtrarPorIntervalo } from '@/components/ui/date_filter';
 
 const supabaseUrl = 'https://ghayhpwthdbmnpsptcnb.supabase.co';
@@ -81,6 +82,11 @@ export default function MindflowDashboard() {
         <div>
           <h2 className="text-lg font-semibold mb-2">Evolução de Custo vs. Reuniões</h2>
           <CostVsMeetingsChart leads={filteredLeads} />
+        </div>
+
+        <div>
+          <h2 className="text-lg font-semibold mb-2">Análise de Sentimento</h2>
+          <SentimentDonutChart leads={filteredLeads} />
         </div>
 
         {/* Próximos gráficos aqui */}
