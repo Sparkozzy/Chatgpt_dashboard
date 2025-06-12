@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Lead } from '@/types/lead';
 import { calcularKPIs } from '@/utils/kpi';
 import FunnelConversao from '@/components/charts/funnel_chart';
+import CostVsMeetingsChart from '@/components/charts/cost_vs_meetings_chart';
 import DateRangeFilter, { filtrarPorIntervalo } from '@/components/ui/date_filter';
 
 const supabaseUrl = 'https://ghayhpwthdbmnpsptcnb.supabase.co';
@@ -71,13 +72,18 @@ export default function MindflowDashboard() {
         <Card><CardContent>{`Taxa de Atendimento: ${kpis.taxaAtendimento}`}</CardContent></Card>
       </section>
 
-      <section className="mt-6">
-        <div className="mb-6">
+      <section className="mt-6 space-y-10">
+        <div>
           <h2 className="text-lg font-semibold mb-2">Funil de Conversão</h2>
           <FunnelConversao leads={filteredLeads} />
         </div>
 
-        {/* Outros gráficos futuros aqui */}
+        <div>
+          <h2 className="text-lg font-semibold mb-2">Evolução de Custo vs. Reuniões</h2>
+          <CostVsMeetingsChart leads={filteredLeads} />
+        </div>
+
+        {/* Próximos gráficos aqui */}
       </section>
     </div>
   );
